@@ -47,6 +47,24 @@ public class Lab1P2_EduardoValdez {
         
 
     }
+    public static void bubblesort(int[] arreglo,int n) {
+        int num1 = 0;
+        int num2 = 0;
+        if(n<arreglo.length){
+            for (int j = 0; j < arreglo.length-1; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    num1 = arreglo[j];
+                    num2 = arreglo[j + 1];
+                    arreglo[j] = num2;
+                    arreglo[j + 1] = num1;
+                }
+            
+        }
+            bubblesort(arreglo,n+1);
+        }
+       
+
+    }
     //calcular mediana de medianas
     public static int meddemed (ArrayList<Integer> lista){
         int numero = 0;
@@ -92,7 +110,8 @@ public class Lab1P2_EduardoValdez {
         }
         return matriz;
     }
-
+    
+    //generar la matriz
     public static int[][] generarmatriz(int tamaño) {
         int matriz[][] = new int[tamaño][tamaño];
         for (int i = 0; i < tamaño; i++) {
@@ -103,7 +122,8 @@ public class Lab1P2_EduardoValdez {
         }
         return matriz;
     }
-
+    
+//imprimir la matriz
     public static void imprimir(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
@@ -113,6 +133,7 @@ public class Lab1P2_EduardoValdez {
         }
     }
 
+    //imprimir el arraylist
     public static void imprimir2(ArrayList<Integer> lista) {
         for (int i = 0; i < lista.size(); i++) {
             System.out.print("[" + lista.get(i) + "]");
@@ -120,24 +141,7 @@ public class Lab1P2_EduardoValdez {
     }
     
 
-    public static void bubblesort(int[] arreglo,int n) {
-        int num1 = 0;
-        int num2 = 0;
-        if(n<arreglo.length){
-            for (int j = 0; j < arreglo.length-1; j++) {
-                if (arreglo[j] > arreglo[j + 1]) {
-                    num1 = arreglo[j];
-                    num2 = arreglo[j + 1];
-                    arreglo[j] = num2;
-                    arreglo[j + 1] = num1;
-                }
-            
-        }
-            bubblesort(arreglo,n+1);
-        }
-       
-
-    }
+    
     public static void bubblesort2(ArrayList<Integer> list,int n) {
         int num1 = 0;
         int num2 = 0;
