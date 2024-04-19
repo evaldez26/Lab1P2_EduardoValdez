@@ -81,6 +81,23 @@ public class Lab1P2_EduardoValdez {
         }
 
     }
+        //ordenar matriz con bubblesort
+    public static int[][]ordenarmatriz(int[][] a){
+        int[][]matriz = new int [a.length][a.length];
+        for(int i = 0 ; i<a.length;i++){
+            int []array = new int [a.length];
+            for(int j = 0 ; j<a.length;j++){
+               array[j] = a[i][j]; 
+               
+            }
+            bubblesort(array,0);
+               for(int n = 0; n <a.length;n++){
+                   matriz[i][n]=array[n];
+               }
+            
+        }
+        return matriz;
+    }
     //calcular mediana de medianas
     public static int meddemed (ArrayList<Integer> lista){
         int numero = 0;
@@ -109,23 +126,7 @@ public class Lab1P2_EduardoValdez {
         
     }
     
-    //ordenar matriz con bubblesort
-    public static int[][]ordenarmatriz(int[][] a){
-        int[][]matriz = new int [a.length][a.length];
-        for(int i = 0 ; i<a.length;i++){
-            int []array = new int [a.length];
-            for(int j = 0 ; j<a.length;j++){
-               array[j] = a[i][j]; 
-               
-            }
-            bubblesort(array,0);
-               for(int n = 0; n <a.length;n++){
-                   matriz[i][n]=array[n];
-               }
-            
-        }
-        return matriz;
-    }
+    
     
     //generar la matriz
     public static int[][] generarmatriz(int tamaño) {
