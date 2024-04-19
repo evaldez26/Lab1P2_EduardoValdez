@@ -65,6 +65,22 @@ public class Lab1P2_EduardoValdez {
        
 
     }
+        public static void bubblesort2(ArrayList<Integer> list,int n) {
+        int num1 = 0;
+        int num2 = 0;
+        if(n<list.size()) {
+            for (int j = 0; j < list.size()-1; j++) {
+                if (list.get(j) > list.get(j+1)) {
+                    num1 = list.get(j);
+                    num2 = list.get(j+1);
+                    list.set(j, num2);
+                    list.set(j+1, num1);
+                }
+            }
+            bubblesort2(list,n+1);
+        }
+
+    }
     //calcular mediana de medianas
     public static int meddemed (ArrayList<Integer> lista){
         int numero = 0;
@@ -142,21 +158,6 @@ public class Lab1P2_EduardoValdez {
     
 
     
-    public static void bubblesort2(ArrayList<Integer> list,int n) {
-        int num1 = 0;
-        int num2 = 0;
-        if(n<list.size()) {
-            for (int j = 0; j < list.size()-1; j++) {
-                if (list.get(j) > list.get(j+1)) {
-                    num1 = list.get(j);
-                    num2 = list.get(j+1);
-                    list.set(j, num2);
-                    list.set(j+1, num1);
-                }
-            }
-            bubblesort2(list,n+1);
-        }
 
-    }
 
 }
