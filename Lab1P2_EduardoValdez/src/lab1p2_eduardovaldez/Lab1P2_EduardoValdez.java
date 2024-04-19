@@ -47,16 +47,18 @@ public class Lab1P2_EduardoValdez {
         
 
     }
+    //calcular mediana de medianas
     public static int meddemed (ArrayList<Integer> lista){
-        int num = 0;
+        int numero = 0;
         for(int i = 0; i<lista.size();i++){
             if(i==lista.size()/2){
-               num = lista.get(i);
+               numero = lista.get(i);
             }
         }
-        return num;
+        return numero;
     }
     
+    //llenar arraylist de medianas
     public static ArrayList<Integer> medianas (int [][] matriz){
         ArrayList<Integer> list = new ArrayList<>();
         int tam = matriz.length/2;
@@ -72,6 +74,8 @@ public class Lab1P2_EduardoValdez {
         return list;
         
     }
+    
+    //ordenar matriz con bubblesort
     public static int[][]ordenarmatriz(int[][] a){
         int[][]matriz = new int [a.length][a.length];
         for(int i = 0 ; i<a.length;i++){
