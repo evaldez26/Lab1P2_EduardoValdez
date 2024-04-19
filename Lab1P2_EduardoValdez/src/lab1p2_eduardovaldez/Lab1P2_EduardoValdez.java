@@ -29,8 +29,11 @@ public class Lab1P2_EduardoValdez {
             System.out.println("\nMatriz Ordenada");
             matrix=ordenarmatriz(matrix);
             imprimir(matrix);
-            int [] arraymed = medianas(matrix);
-            imprimir2(arraymed);
+            System.out.println("\nArreglo de Medianas");
+            ArrayList<Integer>list = new ArrayList<>();
+            list = medianas(matrix);
+            imprimir2(list);
+
         } else {
             System.out.println("El tamaño debe ser mayor a 4, y debe ser un numero impar");
         }
@@ -38,16 +41,19 @@ public class Lab1P2_EduardoValdez {
         
 
     }
-    public static int [] medianas (int [][] matriz){
-        int [] arreglo = new int [matriz.length];
+    public static ArrayList<Integer> medianas (int [][] matriz){
+        ArrayList<Integer> list = new ArrayList<>();
+        int tam = matriz.length/2;
+
         for(int i = 0; i<matriz.length;i++){
             for(int j = 0; j<matriz.length;j++){
-                if(j==(matriz.length/2)+0.5){
-                    arreglo[i] = matriz [i][j];
+                if(j==tam){
+                   int num = matriz[i][j];
+                   list.add(num);
                 }
             }
         }
-        return arreglo;
+        return list;
         
     }
     public static int[][]ordenarmatriz(int[][] a){
@@ -87,9 +93,9 @@ public class Lab1P2_EduardoValdez {
         }
     }
 
-    public static void imprimir2(int[] arreglo) {
-        for (int i = 0; i < arreglo.length; i++) {
-            System.out.print("[" + arreglo[i] + "]");
+    public static void imprimir2(ArrayList<Integer> lista) {
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.print("[" + lista.get(i) + "]");
         }
     }
     
