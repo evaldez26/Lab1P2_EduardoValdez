@@ -33,6 +33,12 @@ public class Lab1P2_EduardoValdez {
             ArrayList<Integer>list = new ArrayList<>();
             list = medianas(matrix);
             imprimir2(list);
+            System.out.println("\nOrdenamiento de Mediana");
+            bubblesort2(list,0);
+            imprimir2(list);
+            System.out.println("\nMediana de Medianas");
+            int num = meddemed(list);
+            System.out.println(num);
 
         } else {
             System.out.println("El tamaño debe ser mayor a 4, y debe ser un numero impar");
@@ -41,6 +47,16 @@ public class Lab1P2_EduardoValdez {
         
 
     }
+    public static int meddemed (ArrayList<Integer> lista){
+        int num = 0;
+        for(int i = 0; i<lista.size();i++){
+            if(i==lista.size()/2){
+               num = lista.get(i);
+            }
+        }
+        return num;
+    }
+    
     public static ArrayList<Integer> medianas (int [][] matriz){
         ArrayList<Integer> list = new ArrayList<>();
         int tam = matriz.length/2;
@@ -64,7 +80,7 @@ public class Lab1P2_EduardoValdez {
                array[j] = a[i][j]; 
                
             }
-            bubblesort(array);
+            bubblesort(array,0);
                for(int n = 0; n <a.length;n++){
                    matriz[i][n]=array[n];
                }
@@ -100,10 +116,10 @@ public class Lab1P2_EduardoValdez {
     }
     
 
-    public static void bubblesort(int[] arreglo) {
+    public static void bubblesort(int[] arreglo,int n) {
         int num1 = 0;
         int num2 = 0;
-        for (int i = 0; i < arreglo.length; i++) {
+        if(n<arreglo.length){
             for (int j = 0; j < arreglo.length-1; j++) {
                 if (arreglo[j] > arreglo[j + 1]) {
                     num1 = arreglo[j];
@@ -111,7 +127,26 @@ public class Lab1P2_EduardoValdez {
                     arreglo[j] = num2;
                     arreglo[j + 1] = num1;
                 }
+            
+        }
+            bubblesort(arreglo,n+1);
+        }
+       
+
+    }
+    public static void bubblesort2(ArrayList<Integer> list,int n) {
+        int num1 = 0;
+        int num2 = 0;
+        if(n<list.size()) {
+            for (int j = 0; j < list.size()-1; j++) {
+                if (list.get(j) > list.get(j+1)) {
+                    num1 = list.get(j);
+                    num2 = list.get(j+1);
+                    list.set(j, num2);
+                    list.set(j+1, num1);
+                }
             }
+            bubblesort2(list,n+1);
         }
 
     }
