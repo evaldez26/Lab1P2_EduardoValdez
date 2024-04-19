@@ -3,9 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package lab1p2_eduardovaldez;
-
+//fila 1 asiento 8
 import java.util.Scanner;
 import java.util.Random;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,16 +26,45 @@ public class Lab1P2_EduardoValdez {
         int matrix[][] = generarmatriz(size);
         if (size > 4 && size % 2 != 0) {
             imprimir(matrix);
+            System.out.println("\nMatriz Ordenada");
+            matrix=ordenarmatriz(matrix);
+            imprimir(matrix);
+            int [] arraymed = medianas(matrix);
+            imprimir2(arraymed);
         } else {
             System.out.println("El tamaño debe ser mayor a 4, y debe ser un numero impar");
         }
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                bubblesort(matrix[j]);
-                imprimir2(matrix[i]);
+        
+        
+
+    }
+    public static int [] medianas (int [][] matriz){
+        int [] arreglo = new int [matriz.length];
+        for(int i = 0; i<matriz.length;i++){
+            for(int j = 0; j<matriz.length;j++){
+                if(j==(matriz.length/2)+0.5){
+                    arreglo[i] = matriz [i][j];
+                }
             }
         }
-
+        return arreglo;
+        
+    }
+    public static int[][]ordenarmatriz(int[][] a){
+        int[][]matriz = new int [a.length][a.length];
+        for(int i = 0 ; i<a.length;i++){
+            int []array = new int [a.length];
+            for(int j = 0 ; j<a.length;j++){
+               array[j] = a[i][j]; 
+               
+            }
+            bubblesort(array);
+               for(int n = 0; n <a.length;n++){
+                   matriz[i][n]=array[n];
+               }
+            
+        }
+        return matriz;
     }
 
     public static int[][] generarmatriz(int tamaño) {
@@ -62,6 +92,7 @@ public class Lab1P2_EduardoValdez {
             System.out.print("[" + arreglo[i] + "]");
         }
     }
+    
 
     public static void bubblesort(int[] arreglo) {
         int num1 = 0;
